@@ -1,0 +1,2 @@
+autobot
+-DCATKIN_DEVEL_PREFIX=/home/chirag/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/chirag/catkin_ws/install -G Unix Makefiles

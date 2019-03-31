@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC   -shared -Wl,-soname,libmy_lib.so -o /home/chirag/catkin_ws/devel/lib/libmy_lib.so CMakeFiles/my_lib.dir/src/mavlink_communication.cpp.o CMakeFiles/my_lib.dir/src/serial_port.cpp.o 
