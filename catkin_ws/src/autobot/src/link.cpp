@@ -5,27 +5,36 @@
 #include "serial_port.h"
 #include "mavlink_communication.h"
 std::string reading;
-int array[5]={1,2,3,4,5};
-Serial_Port serial;
+
+
 void chatterCallback(const autobot::Unicycle::ConstPtr& msg)
 {
   ROS_INFO("velocity: [%d] \t w: [%d]", msg->velocity, msg->w);
-mav_send_robot_position_change(5,5,6);
+  //mav_send_desired_cmd_val(msg->velocity,msg->w);
+  ros::Duration(0.5).sleep();
 
 }
 
 
 int main(int argc, char **argv)
 {
-serial.initialize_defaults();
-  ros::init(argc, argv, "link");
 
+  ros::init(argc, argv, "link");
+  serial_port.initialize_defaults();
+  serial_port.start();
 
   ros::NodeHandle n;
 
   ros::Subscriber sub = n.subscribe("cmd_vel", 1000, chatterCallback);
+  ros::Rate r(100);
 
+  while (ros::ok())
+{
+  mav_decode();
+  r.sleep();
+}
   ros::spin();
+
 
 //printf("%s\n", reading);
 
