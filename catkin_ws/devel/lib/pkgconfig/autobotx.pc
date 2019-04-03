@@ -1,0 +1,8 @@
+prefix=/home/chirag/catkin_ws/devel
+
+Name: autobotx
+Description: Description of autobotx
+Version: 0.0.0
+Cflags: -I/home/chirag/catkin_ws/devel/include -I/home/chirag/catkin_ws/src/autobotx/include
+Libs: -L/home/chirag/catkin_ws/devel/lib -lmy_libs
+Requires: message_runtime geometry_msgs roscpp rospy std_msgs

@@ -14,12 +14,6 @@
 # EXTERNAL cache entries
 ########################
 
-//Value Computed by CMake
-AutoBot_BINARY_DIR:STATIC=/home/chirag/catkin_ws/build/autoBot
-
-//Value Computed by CMake
-AutoBot_SOURCE_DIR:STATIC=/home/chirag/catkin_ws/src/autoBot
-
 //Build shared libraries (DLLs).
 BUILD_SHARED_LIBS:BOOL=ON
 
@@ -266,27 +260,10 @@ _gtest_INCLUDES:FILEPATH=/usr/include/gtest/gtest.h
 _gtest_SOURCES:FILEPATH=/usr/src/gtest/src/gtest.cc
 
 //Value Computed by CMake
-autoBot_BINARY_DIR:STATIC=/home/chirag/catkin_ws/build/autoBot
+autobotx_BINARY_DIR:STATIC=/home/chirag/catkin_ws/build/autobotx
 
 //Value Computed by CMake
-autoBot_SOURCE_DIR:STATIC=/home/chirag/catkin_ws/src/autoBot
-
-//Value Computed by CMake
-autobot_BINARY_DIR:STATIC=/home/chirag/catkin_ws/build/autobot
-
-//Dependencies for target
-autobot_LIB_DEPENDS:STATIC=
-
-//Value Computed by CMake
-autobot_SOURCE_DIR:STATIC=/home/chirag/catkin_ws/src/autobot
-
-//Value Computed by CMake
-beginner_tutorials_BINARY_DIR:STATIC=/home/chirag/catkin_ws/build/beginner_tutorials
-
-beginner_tutorials_DIR:PATH=
-
-//Value Computed by CMake
-beginner_tutorials_SOURCE_DIR:STATIC=/home/chirag/catkin_ws/src/beginner_tutorials
+autobotx_SOURCE_DIR:STATIC=/home/chirag/catkin_ws/src/autobotx
 
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/kinetic/share/catkin/cmake
@@ -355,20 +332,14 @@ gtest_force_shared_crt:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
-//Dependencies for target
-include_LIB_DEPENDS:STATIC=
-
 //Path to a library.
 lib:FILEPATH=/opt/ros/kinetic/lib/libxmlrpcpp.so
-
-//The directory containing a CMake configuration file for message_generation.
-message_generation_DIR:PATH=/opt/ros/kinetic/share/message_generation/cmake
 
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/kinetic/share/message_runtime/cmake
 
 //Dependencies for target
-my_lib_LIB_DEPENDS:STATIC=
+my_libs_LIB_DEPENDS:STATIC=
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/kinetic/share/rosconsole/cmake
@@ -388,23 +359,11 @@ rosgraph_msgs_DIR:PATH=/opt/ros/kinetic/share/rosgraph_msgs/cmake
 //The directory containing a CMake configuration file for rospy.
 rospy_DIR:PATH=/opt/ros/kinetic/share/rospy/cmake
 
-//Value Computed by CMake
-rospy_tutorials_BINARY_DIR:STATIC=/home/chirag/catkin_ws/build/beginner_tutorials
-
-//Value Computed by CMake
-rospy_tutorials_SOURCE_DIR:STATIC=/home/chirag/catkin_ws/src/beginner_tutorials
-
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/kinetic/share/rostime/cmake
 
-//Dependencies for target
-src/mavlink_communication.cpp_LIB_DEPENDS:STATIC=
-
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/kinetic/share/std_msgs/cmake
-
-//The directory containing a CMake configuration file for unicycle.
-unicycle_DIR:PATH=unicycle_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/kinetic/share/xmlrpcpp/cmake

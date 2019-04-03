@@ -1,0 +1,6 @@
+set(autobotx_SETUP_PY_VERSION "0.0.0")
+set(autobotx_SETUP_PY_SCRIPTS "")
+set(autobotx_SETUP_PY_PACKAGES "autobotx")
+set(autobotx_SETUP_PY_PACKAGE_DIRS "src/autobotx")
+set(autobotx_SETUP_PY_MODULES "")
+set(autobotx_SETUP_PY_MODULE_DIRS "")
