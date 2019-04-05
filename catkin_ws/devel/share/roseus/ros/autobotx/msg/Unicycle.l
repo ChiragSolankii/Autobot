@@ -19,12 +19,12 @@
 (defmethod autobotx::Unicycle
   (:init
    (&key
-    ((:velocity __velocity) 0)
-    ((:w __w) 0)
+    ((:velocity __velocity) 0.0)
+    ((:w __w) 0.0)
     )
    (send-super :init)
-   (setq _velocity (round __velocity))
-   (setq _w (round __w))
+   (setq _velocity (float __velocity))
+   (setq _w (float __w))
    self)
   (:velocity
    (&optional __velocity)
@@ -35,41 +35,41 @@
   (:serialization-length
    ()
    (+
-    ;; int16 _velocity
-    2
-    ;; int16 _w
-    2
+    ;; float32 _velocity
+    4
+    ;; float32 _w
+    4
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; int16 _velocity
-       (write-word _velocity s)
-     ;; int16 _w
-       (write-word _w s)
+     ;; float32 _velocity
+       (sys::poke _velocity (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _w
+       (sys::poke _w (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; int16 _velocity
-     (setq _velocity (sys::peek buf ptr- :short)) (incf ptr- 2)
-   ;; int16 _w
-     (setq _w (sys::peek buf ptr- :short)) (incf ptr- 2)
+   ;; float32 _velocity
+     (setq _velocity (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _w
+     (setq _w (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;;
    self)
   )
 
-(setf (get autobotx::Unicycle :md5sum-) "b8c2016fd61b316daf4095d6aaecaac7")
+(setf (get autobotx::Unicycle :md5sum-) "5da81139520fcfcffde13463db80b125")
 (setf (get autobotx::Unicycle :datatype-) "autobotx/Unicycle")
 (setf (get autobotx::Unicycle :definition-)
-      "int16 velocity
-int16 w
+      "float32 velocity
+float32 w
 
 ")
 
 
 
-(provide :autobotx/Unicycle "b8c2016fd61b316daf4095d6aaecaac7")
+(provide :autobotx/Unicycle "5da81139520fcfcffde13463db80b125")
 
 

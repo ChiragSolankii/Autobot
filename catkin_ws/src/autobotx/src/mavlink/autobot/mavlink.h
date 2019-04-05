@@ -1,5 +1,5 @@
 /** @file
- *  @brief MAVLink comm protocol built from autobot.xml
+ *  @brief MAVLink comm protocol built from autorobot.xml
  *  @see http://mavlink.org
  */
 #pragma once
@@ -29,6 +29,6 @@
 #endif
 
 #include "version.h"
-#include "autobot.h"
+#include "autorobot.h"
 
 #endif // MAVLINK_H

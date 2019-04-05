@@ -122,7 +122,7 @@ public:
 	int  status;
 
 	int read_message(mavlink_message_t &message);
-	int write_message(const mavlink_message_t &message);
+	int write_message(const mavlink_message_t &message, uint16_t size);
 
 	void open_serial();
 	void close_serial();

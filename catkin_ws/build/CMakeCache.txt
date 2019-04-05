@@ -262,6 +262,9 @@ _gtest_SOURCES:FILEPATH=/usr/src/gtest/src/gtest.cc
 //Value Computed by CMake
 autobotx_BINARY_DIR:STATIC=/home/chirag/catkin_ws/build/autobotx
 
+//Dependencies for target
+autobotx_LIB_DEPENDS:STATIC=
+
 //Value Computed by CMake
 autobotx_SOURCE_DIR:STATIC=/home/chirag/catkin_ws/src/autobotx
 

@@ -26,13 +26,13 @@ class Unicycle {
         this.velocity = initObj.velocity
       }
       else {
-        this.velocity = 0;
+        this.velocity = 0.0;
       }
       if (initObj.hasOwnProperty('w')) {
         this.w = initObj.w
       }
       else {
-        this.w = 0;
+        this.w = 0.0;
       }
     }
   }
@@ -40,9 +40,9 @@ class Unicycle {
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type Unicycle
     // Serialize message field [velocity]
-    bufferOffset = _serializer.int16(obj.velocity, buffer, bufferOffset);
+    bufferOffset = _serializer.float32(obj.velocity, buffer, bufferOffset);
     // Serialize message field [w]
-    bufferOffset = _serializer.int16(obj.w, buffer, bufferOffset);
+    bufferOffset = _serializer.float32(obj.w, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -51,14 +51,14 @@ class Unicycle {
     let len;
     let data = new Unicycle(null);
     // Deserialize message field [velocity]
-    data.velocity = _deserializer.int16(buffer, bufferOffset);
+    data.velocity = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [w]
-    data.w = _deserializer.int16(buffer, bufferOffset);
+    data.w = _deserializer.float32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 4;
+    return 8;
   }
 
   static datatype() {
@@ -68,14 +68,14 @@ class Unicycle {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'b8c2016fd61b316daf4095d6aaecaac7';
+    return '5da81139520fcfcffde13463db80b125';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    int16 velocity
-    int16 w
+    float32 velocity
+    float32 w
     
     `;
   }
@@ -90,14 +90,14 @@ class Unicycle {
       resolved.velocity = msg.velocity;
     }
     else {
-      resolved.velocity = 0
+      resolved.velocity = 0.0
     }
 
     if (msg.w !== undefined) {
       resolved.w = msg.w;
     }
     else {
-      resolved.w = 0
+      resolved.w = 0.0
     }
 
     return resolved;

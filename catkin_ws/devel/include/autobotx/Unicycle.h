@@ -24,21 +24,21 @@ struct Unicycle_
   typedef Unicycle_<ContainerAllocator> Type;
 
   Unicycle_()
-    : velocity(0)
-    , w(0)  {
+    : velocity(0.0)
+    , w(0.0)  {
     }
   Unicycle_(const ContainerAllocator& _alloc)
-    : velocity(0)
-    , w(0)  {
+    : velocity(0.0)
+    , w(0.0)  {
   (void)_alloc;
     }
 
 
 
-   typedef int16_t _velocity_type;
+   typedef float _velocity_type;
   _velocity_type velocity;
 
-   typedef int16_t _w_type;
+   typedef float _w_type;
   _w_type w;
 
 
@@ -119,12 +119,12 @@ struct MD5Sum< ::autobotx::Unicycle_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "b8c2016fd61b316daf4095d6aaecaac7";
+    return "5da81139520fcfcffde13463db80b125";
   }
 
   static const char* value(const ::autobotx::Unicycle_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xb8c2016fd61b316dULL;
-  static const uint64_t static_value2 = 0xaf4095d6aaecaac7ULL;
+  static const uint64_t static_value1 = 0x5da81139520fcfcfULL;
+  static const uint64_t static_value2 = 0xfde13463db80b125ULL;
 };
 
 template<class ContainerAllocator>
@@ -143,8 +143,8 @@ struct Definition< ::autobotx::Unicycle_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int16 velocity\n\
-int16 w\n\
+    return "float32 velocity\n\
+float32 w\n\
 ";
   }
 
@@ -184,9 +184,9 @@ struct Printer< ::autobotx::Unicycle_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::autobotx::Unicycle_<ContainerAllocator>& v)
   {
     s << indent << "velocity: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.velocity);
+    Printer<float>::stream(s, indent + "  ", v.velocity);
     s << indent << "w: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.w);
+    Printer<float>::stream(s, indent + "  ", v.w);
   }
 };
 

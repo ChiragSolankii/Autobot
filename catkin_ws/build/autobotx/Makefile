@@ -196,6 +196,21 @@ autobotx_generate_messages_py/fast:
 .PHONY : autobotx_generate_messages_py/fast
 
 # Convenience name for target.
+autobotx/CMakeFiles/link.dir/rule:
+	cd /home/chirag/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 autobotx/CMakeFiles/link.dir/rule
+.PHONY : autobotx/CMakeFiles/link.dir/rule
+
+# Convenience name for target.
+link: autobotx/CMakeFiles/link.dir/rule
+
+.PHONY : link
+
+# fast build rule for target.
+link/fast:
+	cd /home/chirag/catkin_ws/build && $(MAKE) -f autobotx/CMakeFiles/link.dir/build.make autobotx/CMakeFiles/link.dir/build
+.PHONY : link/fast
+
+# Convenience name for target.
 autobotx/CMakeFiles/autobotx_gennodejs.dir/rule:
 	cd /home/chirag/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 autobotx/CMakeFiles/autobotx_gennodejs.dir/rule
 .PHONY : autobotx/CMakeFiles/autobotx_gennodejs.dir/rule
@@ -660,6 +675,33 @@ autobotx_generate_messages/fast:
 	cd /home/chirag/catkin_ws/build && $(MAKE) -f autobotx/CMakeFiles/autobotx_generate_messages.dir/build.make autobotx/CMakeFiles/autobotx_generate_messages.dir/build
 .PHONY : autobotx_generate_messages/fast
 
+src/link.o: src/link.cpp.o
+
+.PHONY : src/link.o
+
+# target to build an object file
+src/link.cpp.o:
+	cd /home/chirag/catkin_ws/build && $(MAKE) -f autobotx/CMakeFiles/link.dir/build.make autobotx/CMakeFiles/link.dir/src/link.cpp.o
+.PHONY : src/link.cpp.o
+
+src/link.i: src/link.cpp.i
+
+.PHONY : src/link.i
+
+# target to preprocess a source file
+src/link.cpp.i:
+	cd /home/chirag/catkin_ws/build && $(MAKE) -f autobotx/CMakeFiles/link.dir/build.make autobotx/CMakeFiles/link.dir/src/link.cpp.i
+.PHONY : src/link.cpp.i
+
+src/link.s: src/link.cpp.s
+
+.PHONY : src/link.s
+
+# target to generate assembly for a file
+src/link.cpp.s:
+	cd /home/chirag/catkin_ws/build && $(MAKE) -f autobotx/CMakeFiles/link.dir/build.make autobotx/CMakeFiles/link.dir/src/link.cpp.s
+.PHONY : src/link.cpp.s
+
 src/mavlink_communication.o: src/mavlink_communication.cpp.o
 
 .PHONY : src/mavlink_communication.o
@@ -728,6 +770,7 @@ help:
 	@echo "... install"
 	@echo "... my_libs"
 	@echo "... autobotx_generate_messages_py"
+	@echo "... link"
 	@echo "... autobotx_gennodejs"
 	@echo "... autobotx_generate_messages_nodejs"
 	@echo "... autobotx_generate_messages_lisp"
@@ -760,6 +803,9 @@ help:
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... autobotx_generate_messages"
+	@echo "... src/link.o"
+	@echo "... src/link.i"
+	@echo "... src/link.s"
 	@echo "... src/mavlink_communication.o"
 	@echo "... src/mavlink_communication.i"
 	@echo "... src/mavlink_communication.s"

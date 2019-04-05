@@ -1,6 +1,6 @@
 #pragma once
 // MESSAGE DESIRE_CMD_VAL PACKING
-
+#include <stdio.h>
 #define MAVLINK_MSG_ID_DESIRE_CMD_VAL 32
 
 MAVPACKED(
@@ -51,6 +51,8 @@ typedef struct __mavlink_desire_cmd_val_t {
 static inline uint16_t mavlink_msg_desire_cmd_val_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
                                float v, float w)
 {
+
+
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_DESIRE_CMD_VAL_LEN];
     _mav_put_float(buf, 0, v);
@@ -62,10 +64,12 @@ static inline uint16_t mavlink_msg_desire_cmd_val_pack(uint8_t system_id, uint8_
     packet.v = v;
     packet.w = w;
 
+
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_DESIRE_CMD_VAL_LEN);
 #endif
 
     msg->msgid = MAVLINK_MSG_ID_DESIRE_CMD_VAL;
+  
     return mavlink_finalize_message(msg, system_id, component_id, MAVLINK_MSG_ID_DESIRE_CMD_VAL_MIN_LEN, MAVLINK_MSG_ID_DESIRE_CMD_VAL_LEN, MAVLINK_MSG_ID_DESIRE_CMD_VAL_CRC);
 }
 

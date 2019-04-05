@@ -309,6 +309,19 @@ autobotx_generate_messages_py/fast:
 .PHONY : autobotx_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named link
+
+# Build rule for target.
+link: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 link
+.PHONY : link
+
+# fast build rule for target.
+link/fast:
+	$(MAKE) -f autobotx/CMakeFiles/link.dir/build.make autobotx/CMakeFiles/link.dir/build
+.PHONY : link/fast
+
+#=============================================================================
 # Target rules for targets named autobotx_gennodejs
 
 # Build rule for target.
@@ -735,6 +748,7 @@ help:
 	@echo "... gtest_main"
 	@echo "... my_libs"
 	@echo "... autobotx_generate_messages_py"
+	@echo "... link"
 	@echo "... autobotx_gennodejs"
 	@echo "... autobotx_generate_messages_nodejs"
 	@echo "... autobotx_generate_messages_lisp"

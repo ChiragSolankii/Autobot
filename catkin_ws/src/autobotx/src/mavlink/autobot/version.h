@@ -1,5 +1,5 @@
 /** @file
- *  @brief MAVLink comm protocol built from autobot.xml
+ *  @brief MAVLink comm protocol built from autorobot.xml
  *  @see http://mavlink.org
  */
 #pragma once
@@ -7,7 +7,7 @@
 #ifndef MAVLINK_VERSION_H
 #define MAVLINK_VERSION_H
 
-#define MAVLINK_BUILD_DATE "Wed Mar 27 2019"
+#define MAVLINK_BUILD_DATE "Tue Mar 19 2019"
 #define MAVLINK_WIRE_PROTOCOL_VERSION "2.0"
 #define MAVLINK_MAX_DIALECT_PAYLOAD_SIZE 12
  

@@ -1,10 +1,10 @@
 /** @file
- *    @brief MAVLink comm protocol testsuite generated from autobot.xml
+ *    @brief MAVLink comm protocol testsuite generated from autorobot.xml
  *    @see http://qgroundcontrol.org/mavlink/
  */
 #pragma once
-#ifndef AUTOBOT_TESTSUITE_H
-#define AUTOBOT_TESTSUITE_H
+#ifndef AUTOROBOT_TESTSUITE_H
+#define AUTOROBOT_TESTSUITE_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -13,12 +13,12 @@ extern "C" {
 #ifndef MAVLINK_TEST_ALL
 #define MAVLINK_TEST_ALL
 
-static void mavlink_test_autobot(uint8_t, uint8_t, mavlink_message_t *last_msg);
+static void mavlink_test_autorobot(uint8_t, uint8_t, mavlink_message_t *last_msg);
 
 static void mavlink_test_all(uint8_t system_id, uint8_t component_id, mavlink_message_t *last_msg)
 {
 
-    mavlink_test_autobot(system_id, component_id, last_msg);
+    mavlink_test_autorobot(system_id, component_id, last_msg);
 }
 #endif
 
@@ -525,7 +525,7 @@ static void mavlink_test_robot_distance_sensor_readings(uint8_t system_id, uint8
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 }
 
-static void mavlink_test_autobot(uint8_t system_id, uint8_t component_id, mavlink_message_t *last_msg)
+static void mavlink_test_autorobot(uint8_t system_id, uint8_t component_id, mavlink_message_t *last_msg)
 {
     mavlink_test_left_wheel_pid_gains(system_id, component_id, last_msg);
     mavlink_test_right_wheel_pid_gains(system_id, component_id, last_msg);
@@ -541,4 +541,4 @@ static void mavlink_test_autobot(uint8_t system_id, uint8_t component_id, mavlin
 #ifdef __cplusplus
 }
 #endif // __cplusplus
-#endif // AUTOBOT_TESTSUITE_H
+#endif // AUTOROBOT_TESTSUITE_H

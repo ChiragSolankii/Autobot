@@ -53,6 +53,7 @@
 // ------------------------------------------------------------------------------
 
 #include "serial_port.h"
+#include <stdio.h>
 
 
 // ----------------------------------------------------------------------------------
@@ -92,16 +93,16 @@ initialize_defaults()
 	fd     = -1;
 	status = SERIAL_PORT_CLOSED;
 
-	uart_name = (char*)"/dev/ttyACM0";
+	uart_name = (char*)"/dev/ttyACM1";
 	baudrate  = 115200;
 //	printf("\n connected with due\n");
 	// Start mutex
-	int result = pthread_mutex_init(&lock, NULL);
-	if ( result != 0 )
-	{
-		printf("\n mutex init failed\n");
-		throw 1;
-	}
+	// int result = pthread_mutex_init(&lock, NULL);
+	// if ( result != 0 )
+	// {
+	// 	printf("\n mutex init failed\n");
+	// 	throw 1;
+	// }
 }
 
 
@@ -190,15 +191,16 @@ read_message(mavlink_message_t &message)
 // ------------------------------------------------------------------------------
 int
 Serial_Port::
-write_message(const mavlink_message_t &message)
+write_message(const mavlink_message_t &message, uint16_t size)
 {
-	char buf[500];
+		char buf[size];
 
 	// Translate message to buffer
-	unsigned len = mavlink_msg_to_send_buffer((uint8_t*)buf, &message);
+	mavlink_msg_to_send_buffer((uint8_t*)buf, &message);
+
 
 	// Write buffer to serial port, locks port while writing
-	int bytesWritten = _write_port(buf,len);
+	int bytesWritten = _write_port(buf,size);
 
 	return bytesWritten;
 }
@@ -528,7 +530,6 @@ _write_port(char *buf, unsigned len)
 
 	// Lock
 	//pthread_mutex_lock(&lock);
-
 	// Write packet via serial link
 	const int bytesWritten = static_cast<int>(write(fd, buf, len));
 

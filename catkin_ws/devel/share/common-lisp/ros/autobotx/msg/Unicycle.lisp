@@ -10,13 +10,13 @@
   ((velocity
     :reader velocity
     :initarg :velocity
-    :type cl:fixnum
-    :initform 0)
+    :type cl:float
+    :initform 0.0)
    (w
     :reader w
     :initarg :w
-    :type cl:fixnum
-    :initform 0))
+    :type cl:float
+    :initform 0.0))
 )
 
 (cl:defclass Unicycle (<Unicycle>)
@@ -38,25 +38,31 @@
   (w m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <Unicycle>) ostream)
   "Serializes a message object of type '<Unicycle>"
-  (cl:let* ((signed (cl:slot-value msg 'velocity)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 65536) signed)))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
-    )
-  (cl:let* ((signed (cl:slot-value msg 'w)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 65536) signed)))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
-    )
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'velocity))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'w))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <Unicycle>) istream)
   "Deserializes a message object of type '<Unicycle>"
-    (cl:let ((unsigned 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:slot-value msg 'velocity) (cl:if (cl:< unsigned 32768) unsigned (cl:- unsigned 65536))))
-    (cl:let ((unsigned 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:slot-value msg 'w) (cl:if (cl:< unsigned 32768) unsigned (cl:- unsigned 65536))))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'velocity) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'w) (roslisp-utils:decode-single-float-bits bits)))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<Unicycle>)))
@@ -67,20 +73,20 @@
   "autobotx/Unicycle")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Unicycle>)))
   "Returns md5sum for a message object of type '<Unicycle>"
-  "b8c2016fd61b316daf4095d6aaecaac7")
+  "5da81139520fcfcffde13463db80b125")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Unicycle)))
   "Returns md5sum for a message object of type 'Unicycle"
-  "b8c2016fd61b316daf4095d6aaecaac7")
+  "5da81139520fcfcffde13463db80b125")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Unicycle>)))
   "Returns full string definition for message of type '<Unicycle>"
-  (cl:format cl:nil "int16 velocity~%int16 w~%~%~%"))
+  (cl:format cl:nil "float32 velocity~%float32 w~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Unicycle)))
   "Returns full string definition for message of type 'Unicycle"
-  (cl:format cl:nil "int16 velocity~%int16 w~%~%~%"))
+  (cl:format cl:nil "float32 velocity~%float32 w~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Unicycle>))
   (cl:+ 0
-     2
-     2
+     4
+     4
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <Unicycle>))
   "Converts a ROS message object to a list"

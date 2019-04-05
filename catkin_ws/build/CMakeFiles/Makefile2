@@ -391,6 +391,7 @@ clean: gtest/gtest/CMakeFiles/gtest_main.dir/clean
 
 # Convenience name for "all" pass in the directory.
 autobotx/all: autobotx/CMakeFiles/my_libs.dir/all
+autobotx/all: autobotx/CMakeFiles/link.dir/all
 autobotx/all: autobotx/CMakeFiles/autobotx_generate_messages.dir/all
 
 .PHONY : autobotx/all
@@ -398,6 +399,7 @@ autobotx/all: autobotx/CMakeFiles/autobotx_generate_messages.dir/all
 # Convenience name for "clean" pass in the directory.
 autobotx/clean: autobotx/CMakeFiles/my_libs.dir/clean
 autobotx/clean: autobotx/CMakeFiles/autobotx_generate_messages_py.dir/clean
+autobotx/clean: autobotx/CMakeFiles/link.dir/clean
 autobotx/clean: autobotx/CMakeFiles/autobotx_gennodejs.dir/clean
 autobotx/clean: autobotx/CMakeFiles/autobotx_generate_messages_nodejs.dir/clean
 autobotx/clean: autobotx/CMakeFiles/autobotx_generate_messages_lisp.dir/clean
@@ -444,7 +446,7 @@ autobotx/preinstall:
 autobotx/CMakeFiles/my_libs.dir/all:
 	$(MAKE) -f autobotx/CMakeFiles/my_libs.dir/build.make autobotx/CMakeFiles/my_libs.dir/depend
 	$(MAKE) -f autobotx/CMakeFiles/my_libs.dir/build.make autobotx/CMakeFiles/my_libs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chirag/catkin_ws/build/CMakeFiles --progress-num=19,20,21 "Built target my_libs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chirag/catkin_ws/build/CMakeFiles --progress-num=21,22,23 "Built target my_libs"
 .PHONY : autobotx/CMakeFiles/my_libs.dir/all
 
 # Include target in all.
@@ -505,6 +507,43 @@ autobotx/CMakeFiles/autobotx_generate_messages_py.dir/clean:
 
 # clean rule for target.
 clean: autobotx/CMakeFiles/autobotx_generate_messages_py.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target autobotx/CMakeFiles/link.dir
+
+# All Build rule for target.
+autobotx/CMakeFiles/link.dir/all: autobotx/CMakeFiles/my_libs.dir/all
+	$(MAKE) -f autobotx/CMakeFiles/link.dir/build.make autobotx/CMakeFiles/link.dir/depend
+	$(MAKE) -f autobotx/CMakeFiles/link.dir/build.make autobotx/CMakeFiles/link.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chirag/catkin_ws/build/CMakeFiles --progress-num=19,20 "Built target link"
+.PHONY : autobotx/CMakeFiles/link.dir/all
+
+# Include target in all.
+all: autobotx/CMakeFiles/link.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+autobotx/CMakeFiles/link.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chirag/catkin_ws/build/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 autobotx/CMakeFiles/link.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chirag/catkin_ws/build/CMakeFiles 0
+.PHONY : autobotx/CMakeFiles/link.dir/rule
+
+# Convenience name for target.
+link: autobotx/CMakeFiles/link.dir/rule
+
+.PHONY : link
+
+# clean rule for target.
+autobotx/CMakeFiles/link.dir/clean:
+	$(MAKE) -f autobotx/CMakeFiles/link.dir/build.make autobotx/CMakeFiles/link.dir/clean
+.PHONY : autobotx/CMakeFiles/link.dir/clean
+
+# clean rule for target.
+clean: autobotx/CMakeFiles/link.dir/clean
 
 .PHONY : clean
 

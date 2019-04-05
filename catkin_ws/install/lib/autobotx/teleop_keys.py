@@ -98,8 +98,8 @@ if __name__=="__main__":
         #twist.linear.x = speed; twist.linear.y = 0; twist.linear.z =0;
         #twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = turn
         #pub.publish(twist.linear,twist.angular)
-        unicycle.velocity= int(speed)
-        unicycle.w = int(turn)
+        unicycle.velocity= float(speed)
+        unicycle.w = float(turn)
         pub.publish(unicycle)
 
         print(unicycle)

@@ -1,2 +1,2 @@
-int16 velocity
-int16 w
+float32 velocity
+float32 w

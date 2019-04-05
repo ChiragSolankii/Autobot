@@ -27,9 +27,8 @@
 /home/chirag/catkin_ws/install/share/autobotx/cmake/autobotxConfig.cmake
 /home/chirag/catkin_ws/install/share/autobotx/cmake/autobotxConfig-version.cmake
 /home/chirag/catkin_ws/install/share/autobotx/package.xml
-/home/chirag/catkin_ws/install/lib/autobotx/teleop.py
+/home/chirag/catkin_ws/install/lib/libmy_libs.so
 /home/chirag/catkin_ws/install/lib/autobotx/teleop_keys.py
 /home/chirag/catkin_ws/install/lib/autobotx/reader.py
-/home/chirag/catkin_ws/install/share/autobotx/teleop.py
 /home/chirag/catkin_ws/install/share/autobotx/teleop_keys.py
 /home/chirag/catkin_ws/install/share/autobotx/reader.py

@@ -1,2 +1,0 @@
-set(AutoBot_MESSAGE_FILES "/home/chirag/catkin_ws/src/autoBot/msg/Unicycle.msg")
-set(AutoBot_SERVICE_FILES "")

@@ -7,14 +7,14 @@ import struct
 
 
 class Unicycle(genpy.Message):
-  _md5sum = "b8c2016fd61b316daf4095d6aaecaac7"
+  _md5sum = "5da81139520fcfcffde13463db80b125"
   _type = "autobotx/Unicycle"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """int16 velocity
-int16 w
+  _full_text = """float32 velocity
+float32 w
 """
   __slots__ = ['velocity','w']
-  _slot_types = ['int16','int16']
+  _slot_types = ['float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -34,12 +34,12 @@ int16 w
       super(Unicycle, self).__init__(*args, **kwds)
       #message fields cannot be None, assign default values for those that are
       if self.velocity is None:
-        self.velocity = 0
+        self.velocity = 0.
       if self.w is None:
-        self.w = 0
+        self.w = 0.
     else:
-      self.velocity = 0
-      self.w = 0
+      self.velocity = 0.
+      self.w = 0.
 
   def _get_types(self):
     """
@@ -54,7 +54,7 @@ int16 w
     """
     try:
       _x = self
-      buff.write(_get_struct_2h().pack(_x.velocity, _x.w))
+      buff.write(_get_struct_2f().pack(_x.velocity, _x.w))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -67,8 +67,8 @@ int16 w
       end = 0
       _x = self
       start = end
-      end += 4
-      (_x.velocity, _x.w,) = _get_struct_2h().unpack(str[start:end])
+      end += 8
+      (_x.velocity, _x.w,) = _get_struct_2f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -82,7 +82,7 @@ int16 w
     """
     try:
       _x = self
-      buff.write(_get_struct_2h().pack(_x.velocity, _x.w))
+      buff.write(_get_struct_2f().pack(_x.velocity, _x.w))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -96,8 +96,8 @@ int16 w
       end = 0
       _x = self
       start = end
-      end += 4
-      (_x.velocity, _x.w,) = _get_struct_2h().unpack(str[start:end])
+      end += 8
+      (_x.velocity, _x.w,) = _get_struct_2f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -106,9 +106,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2h = None
-def _get_struct_2h():
-    global _struct_2h
-    if _struct_2h is None:
-        _struct_2h = struct.Struct("<2h")
-    return _struct_2h
+_struct_2f = None
+def _get_struct_2f():
+    global _struct_2f
+    if _struct_2f is None:
+        _struct_2f = struct.Struct("<2f")
+    return _struct_2f
