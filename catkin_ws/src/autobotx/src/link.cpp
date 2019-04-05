@@ -10,7 +10,7 @@ float v = 0;
 float w = 0;
 
 uint16_t x = 0;
-mavlink_message_t message_send;
+
 
 char *uart_name = (char*)"/dev/ttyACM1";
 int baudrate = 115200;
@@ -26,8 +26,9 @@ void chatterCallback(const autobotx::Unicycle::ConstPtr& msg)
 {
   v = msg->velocity;
   w = msg->w;
+  mavlink_message_t message_send;
   printf("velocity: [%f] \t w: [%f]\n", v, w);
-  x = mavlink_msg_desire_cmd_val_pack(SYSTEM_ID, COMPONENT_ID, &message_send, 23.40, 0);
+  x = mavlink_msg_desire_cmd_val_pack(SYSTEM_ID, COMPONENT_ID, &message_send, v, w);
   serial_port.write_message(message_send, x);
 }
 
