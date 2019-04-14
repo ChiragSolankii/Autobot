@@ -11,43 +11,55 @@ from std_msgs.msg import String
 import sys, select, termios, tty
 
 msg = """
-Reading from the keyboard  and Publishing to Twist!
+Reading from the keyboard  and Publishing to Unicycle v and w!
 ---------------------------
-Moving around:
-   u    i    o
-   j    k    l
-   m    ,    .
-For Holonomic mode (strafing), hold down the shift key:
+key     v       w
 ---------------------------
-   U    I    O
-   J    K    L
-   M    <    >
-t : up (+z)
-b : down (-z)
-anything else : stop
-q/z : increase/decrease max speeds by 10%
-w/x : increase/decrease only linear speed by 10%
-e/c : increase/decrease only angular speed by 10%
-CTRL-C to quit
-"""
+w       +       0
+a       0       -
+s       0       +
+d       0       +
+q       -       -
+e       +       +
 
+' '     0       0
+
+CTRL-C to quit
+
+"""
+'''
 moveBindings = {
         'w':(1,0),
+        'a':(1,1),
+        'd':(1,-1),
         's':(-1,0),
-        'd':(1,1),
-        'a':(-1,-1),
-        'e':(1,1),
-        'q':(1,-1),
-        'c':(-1,1),
-        'z':(-1,1),
+        'q':(0,1),
+        'e':(0,-1),
+        ' ':(0,0),
+
     }
 
 speedBindings={
-
-
+        '8':(0.1,0),
+        '2':(-0.1,0),
+        '4':(0,-0.1),
+        '6':(0,0.1),
+    }
+'''
+moveBindings = {
+        ' ':(0,0),
 
     }
+speedBindings={
+        'w':(0.1,0),
+        's':(-0.1,0),
+        'd':(0,0.1),
+        'a':(0,-0.1),
 
+        'e':(0.1,0.1),
+        'q':(-0.1,-0.1),
+
+    }
 def getKey():
     tty.setraw(sys.stdin.fileno())
     select.select([sys.stdin], [], [], 0)
@@ -64,8 +76,8 @@ if __name__=="__main__":
 
     pub = rospy.Publisher('cmd_vel',Unicycle, queue_size = 1)
     rospy.init_node('teleop_twist_keyboard')
-    speed = rospy.get_param("~speed", 0.5)
-    turn = rospy.get_param("~turn", 1.0)
+    #speed = rospy.get_param("~speed", 0.5)
+    #turn = rospy.get_param("~turn", 1.0)
     speed=0
     turn=0
 
@@ -74,16 +86,25 @@ if __name__=="__main__":
     while(1):
         key = getKey()
         if key in moveBindings.keys():
-            speed = str(moveBindings[key][0])
-            turn = str(moveBindings[key][1])
-        elif key in speedBindings.keys():
-            speed = speed * speedBindings[key][0]
-            turn = turn * speedBindings[key][1]
+            speed = moveBindings[key][0]
+            turn = moveBindings[key][1]
 
-            print(vels(speed))
-            if (status == 14):
-                print(msg)
-            status = (status + 1) % 15
+        if key in speedBindings.keys():
+            speed = speed + 34 * speedBindings[key][0]
+            turn = turn   + 2.31503 * speedBindings[key][1]
+            if speed >= 34 :
+                speed = 34
+            elif speed <=-34 :
+                speed =-34
+            if turn >= 2.31503 :
+                turn =2.31503
+            elif turn <= -2.31503:
+                turn =-2.31503
+
+
+
+            #print(vels(speed,turn))
+
         else:
             x = 0
             y = 0
@@ -93,7 +114,7 @@ if __name__=="__main__":
                 break
 
         #pub.publish(speed,turn)
-        twist = Twist()
+
         unicycle = Unicycle()
         #twist.linear.x = speed; twist.linear.y = 0; twist.linear.z =0;
         #twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = turn

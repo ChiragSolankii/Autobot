@@ -9,4 +9,4 @@ int baudrate = 115200;
 
 
 
-Serial_Port serial_port;
+Serial_Port serial_port((const char *)uart_name, baudrate);

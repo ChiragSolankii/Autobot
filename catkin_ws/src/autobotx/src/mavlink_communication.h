@@ -12,7 +12,10 @@ extern Serial_Port serial_port;
 void mav_send_robot_position_change(int delta_x, int delta_y, int delta_theta);
 //void mav_send_robot_distance_sensor_readings(const uint16_t *ultrasonic_readings);
 void mav_send_initial_status(float initial_heading, uint8_t ultrasonic_config, uint16_t update_freq, uint16_t encoder_ppr);
-*/
 
+
+*/
+extern char *uart_name ;
+extern int baudrate ;
 
 #endif

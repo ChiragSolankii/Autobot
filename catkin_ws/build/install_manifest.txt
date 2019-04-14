@@ -32,3 +32,7 @@
 /home/chirag/catkin_ws/install/lib/autobotx/reader.py
 /home/chirag/catkin_ws/install/share/autobotx/teleop_keys.py
 /home/chirag/catkin_ws/install/share/autobotx/reader.py
+/home/chirag/catkin_ws/install/lib/pkgconfig/kinect_slam.pc
+/home/chirag/catkin_ws/install/share/kinect_slam/cmake/kinect_slamConfig.cmake
+/home/chirag/catkin_ws/install/share/kinect_slam/cmake/kinect_slamConfig-version.cmake
+/home/chirag/catkin_ws/install/share/kinect_slam/package.xml

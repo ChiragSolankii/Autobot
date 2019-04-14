@@ -1,0 +1,8 @@
+prefix=/home/chirag/catkin_ws/install
+
+Name: kinect_slam
+Description: Description of kinect_slam
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/chirag/catkin_ws/install/lib 
+Requires: 

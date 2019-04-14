@@ -93,7 +93,7 @@ initialize_defaults()
 	fd     = -1;
 	status = SERIAL_PORT_CLOSED;
 
-	uart_name = (char*)"/dev/ttyACM1";
+	uart_name = (char*)"/dev/ttyACM0";
 	baudrate  = 115200;
 //	printf("\n connected with due\n");
 	// Start mutex

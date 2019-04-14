@@ -7,6 +7,8 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   genmsg
+tf
+nav_msgs
 )
 
 
