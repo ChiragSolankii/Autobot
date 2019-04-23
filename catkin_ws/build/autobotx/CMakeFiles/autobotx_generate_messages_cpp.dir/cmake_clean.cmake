@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/autobotx_generate_messages_cpp"
-  "/home/chirag/catkin_ws/devel/include/autobotx/Unicycle.h"
+  "/home/robox/catkin_ws/devel/include/autobotx/Unicycle.h"
 )
 
 # Per-language clean rules from dependency scanning.

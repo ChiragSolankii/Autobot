@@ -9,6 +9,10 @@
 #include <tf/transform_broadcaster.h>
 #include <nav_msgs/Odometry.h>
 
+std::string uart_name = "/dev/ttyACM0";
+int baudrate = 115200;
+Serial_Port *serial_port;
+
 #define unit_corr   100.0
 
 float v = 0;
@@ -17,8 +21,7 @@ float w = 0;
 uint16_t x_mav = 0;
 
 
-char *uart_name = (char*)"/dev/ttyACM1";
-int baudrate = 115200;
+
 mavlink_message_t message;
 mavlink_robot_sensor_readings_t mav_robot_sensor_read;
 mavlink_robot_position_change_t mav_robot_position_change;
@@ -34,13 +37,14 @@ void chatterCallback(const autobotx::Unicycle::ConstPtr& msg)
   mavlink_message_t message_send;
   printf("velocity: [%f] \t w: [%f]\n", v, w);
   x_mav = mavlink_msg_desire_cmd_val_pack(SYSTEM_ID, COMPONENT_ID, &message_send, v, w);
-  serial_port.write_message(message_send, x_mav);
+  serial_port->write_message(message_send, x_mav);
 }
 
 double x = 0.0;
 double y = 0.0;
 double th = 0.0;
-
+double prev_th = 0.0;
+double d_th = 0.0;
 double vx = 0.0;
 double vy = 0.0;
 double vth = 0.0;
@@ -68,8 +72,8 @@ inline void publish_odom(void)
 
   x += robot_pose.x;
   y += robot_pose.y;
-  th += robot_pose.theta;
-  th = atan2(sin(th), cos(th));
+  th = robot_pose.theta;
+  //th = atan2(sin(th), cos(th));
 
   geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);
 
@@ -89,7 +93,9 @@ inline void publish_odom(void)
 
 
   vx = sqrt(robot_pose.x*robot_pose.x + robot_pose.y*robot_pose.y) * 10;
-  vth = robot_pose.theta * 10;
+
+  d_th = th - prev_th; 
+  vth = atan2(sin(d_th), cos(d_th)) * 10;
 
   current_time = ros::Time::now();
   odom.header.stamp = current_time;
@@ -105,6 +111,7 @@ inline void publish_odom(void)
   odom.twist.twist.linear.y = vy;
   odom.twist.twist.angular.z = vth;
 
+  prev_th = th;
   //publish the message
   odom_broadcaster->sendTransform(odom_trans);
   pub_odom->publish(odom);
@@ -117,17 +124,19 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "link");
 
   ros::NodeHandle n;
-
+  ros::NodeHandle nh_private_("~");
   ros::Subscriber sub = n.subscribe("cmd_vel", 100, chatterCallback);
   ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);
   pub_odom = &odom_pub;
   tf::TransformBroadcaster odom_broadcaster2;
   odom_broadcaster = &odom_broadcaster2;
 
+  nh_private_.getParam("controller_usb", uart_name);
 
-  serial_port.initialize_defaults();
-  serial_port.start();
+  Serial_Port SerialPort((const char *)uart_name.c_str(), baudrate);
+  SerialPort.start();
 
+  serial_port = &SerialPort;
   ros::Rate r(1000);
 
   while (ros::ok())
@@ -144,7 +153,7 @@ int main(int argc, char **argv)
 void mav_decode(void)
 {
 
-  bool success = serial_port.read_message(message);
+  bool success = serial_port->read_message(message);
 
   if(success){
     switch(message.msgid){
@@ -158,8 +167,8 @@ void mav_decode(void)
         mavlink_msg_robot_position_change_decode(&message, &mav_robot_position_change);
         robot_pose.x = mav_robot_position_change.delta_x;
         robot_pose.y = mav_robot_position_change.delta_y;
-        robot_pose.theta = mav_robot_position_change.delta_theta;
-        printf("delta x:[%f] \t delta y:[%f] \t delta theta:[%f]\n", mav_robot_position_change.delta_x,mav_robot_position_change.delta_y,mav_robot_position_change.delta_theta);
+        robot_pose.theta = mav_robot_position_change.delta_theta*3.1416/180.0;
+        //printf("delta x:[%f] \t delta y:[%f] \t delta theta:[%f]\n", mav_robot_position_change.delta_x,mav_robot_position_change.delta_y,mav_robot_position_change.delta_theta);
         publish_odom();
         break;
 

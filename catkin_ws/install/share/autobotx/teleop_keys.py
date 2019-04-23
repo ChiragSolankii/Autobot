@@ -50,14 +50,15 @@ moveBindings = {
         ' ':(0,0),
 
     }
+
 speedBindings={
         'w':(0.1,0),
         's':(-0.1,0),
-        'd':(0,0.1),
-        'a':(0,-0.1),
+        'd':(0,-0.1),
+        'a':(0,0.1),
 
-        'e':(0.1,0.1),
-        'q':(-0.1,-0.1),
+        'e':(0.1,-0.1),
+        'q':(-0.1,0.1),
 
     }
 def getKey():
@@ -91,7 +92,7 @@ if __name__=="__main__":
 
         if key in speedBindings.keys():
             speed = speed + 34 * speedBindings[key][0]
-            turn = turn   + 2.31503 * speedBindings[key][1]
+            turn = turn   +1.5 * speedBindings[key][1] #2.31503 * speedBindings[key][1]
             if speed >= 34 :
                 speed = 34
             elif speed <=-34 :

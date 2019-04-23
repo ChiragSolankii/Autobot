@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/chirag/catkin_ws/src/autobotx/src/mavlink_communication.cpp" "/home/chirag/catkin_ws/build/autobotx/CMakeFiles/my_libs.dir/src/mavlink_communication.cpp.o"
-  "/home/chirag/catkin_ws/src/autobotx/src/serial_port.cpp" "/home/chirag/catkin_ws/build/autobotx/CMakeFiles/my_libs.dir/src/serial_port.cpp.o"
+  "/home/robox/catkin_ws/src/autobotx/src/mavlink_communication.cpp" "/home/robox/catkin_ws/build/autobotx/CMakeFiles/my_libs.dir/src/mavlink_communication.cpp.o"
+  "/home/robox/catkin_ws/src/autobotx/src/serial_port.cpp" "/home/robox/catkin_ws/build/autobotx/CMakeFiles/my_libs.dir/src/serial_port.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -18,11 +18,11 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/chirag/catkin_ws/devel/include"
-  "/home/chirag/catkin_ws/src/autobotx/include"
+  "/home/robox/catkin_ws/devel/include"
+  "/home/robox/catkin_ws/src/autobotx/include"
   "/opt/ros/kinetic/include"
   "/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/home/chirag/catkin_ws/src/autobotx/src"
+  "/home/robox/catkin_ws/src/autobotx/src"
   )
 
 # Targets to which this target links.

@@ -2,7 +2,7 @@
 
 message(STATUS "autobotx: 1 messages, 0 services")
 
-set(MSG_I_FLAGS "-Iautobotx:/home/chirag/catkin_ws/src/autobotx/msg;-Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg;-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Iautobotx:/home/robox/catkin_ws/src/autobotx/msg;-Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg;-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,9 +17,9 @@ add_custom_target(autobotx_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/chirag/catkin_ws/src/autobotx/msg/Unicycle.msg" NAME_WE)
+get_filename_component(_filename "/home/robox/catkin_ws/src/autobotx/msg/Unicycle.msg" NAME_WE)
 add_custom_target(_autobotx_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "autobotx" "/home/chirag/catkin_ws/src/autobotx/msg/Unicycle.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "autobotx" "/home/robox/catkin_ws/src/autobotx/msg/Unicycle.msg" ""
 )
 
 #
@@ -29,7 +29,7 @@ add_custom_target(_autobotx_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(autobotx
-  "/home/chirag/catkin_ws/src/autobotx/msg/Unicycle.msg"
+  "/home/robox/catkin_ws/src/autobotx/msg/Unicycle.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/autobotx
@@ -49,7 +49,7 @@ add_custom_target(autobotx_generate_messages_cpp
 add_dependencies(autobotx_generate_messages autobotx_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chirag/catkin_ws/src/autobotx/msg/Unicycle.msg" NAME_WE)
+get_filename_component(_filename "/home/robox/catkin_ws/src/autobotx/msg/Unicycle.msg" NAME_WE)
 add_dependencies(autobotx_generate_messages_cpp _autobotx_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -62,7 +62,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS autobotx_generate_messages_cpp)
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(autobotx
-  "/home/chirag/catkin_ws/src/autobotx/msg/Unicycle.msg"
+  "/home/robox/catkin_ws/src/autobotx/msg/Unicycle.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/autobotx
@@ -82,7 +82,7 @@ add_custom_target(autobotx_generate_messages_eus
 add_dependencies(autobotx_generate_messages autobotx_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chirag/catkin_ws/src/autobotx/msg/Unicycle.msg" NAME_WE)
+get_filename_component(_filename "/home/robox/catkin_ws/src/autobotx/msg/Unicycle.msg" NAME_WE)
 add_dependencies(autobotx_generate_messages_eus _autobotx_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -95,7 +95,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS autobotx_generate_messages_eus)
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(autobotx
-  "/home/chirag/catkin_ws/src/autobotx/msg/Unicycle.msg"
+  "/home/robox/catkin_ws/src/autobotx/msg/Unicycle.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/autobotx
@@ -115,7 +115,7 @@ add_custom_target(autobotx_generate_messages_lisp
 add_dependencies(autobotx_generate_messages autobotx_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chirag/catkin_ws/src/autobotx/msg/Unicycle.msg" NAME_WE)
+get_filename_component(_filename "/home/robox/catkin_ws/src/autobotx/msg/Unicycle.msg" NAME_WE)
 add_dependencies(autobotx_generate_messages_lisp _autobotx_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -128,7 +128,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS autobotx_generate_messages_lisp)
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(autobotx
-  "/home/chirag/catkin_ws/src/autobotx/msg/Unicycle.msg"
+  "/home/robox/catkin_ws/src/autobotx/msg/Unicycle.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/autobotx
@@ -148,7 +148,7 @@ add_custom_target(autobotx_generate_messages_nodejs
 add_dependencies(autobotx_generate_messages autobotx_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chirag/catkin_ws/src/autobotx/msg/Unicycle.msg" NAME_WE)
+get_filename_component(_filename "/home/robox/catkin_ws/src/autobotx/msg/Unicycle.msg" NAME_WE)
 add_dependencies(autobotx_generate_messages_nodejs _autobotx_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -161,7 +161,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS autobotx_generate_messages_nodejs)
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(autobotx
-  "/home/chirag/catkin_ws/src/autobotx/msg/Unicycle.msg"
+  "/home/robox/catkin_ws/src/autobotx/msg/Unicycle.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/autobotx
@@ -181,7 +181,7 @@ add_custom_target(autobotx_generate_messages_py
 add_dependencies(autobotx_generate_messages autobotx_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/chirag/catkin_ws/src/autobotx/msg/Unicycle.msg" NAME_WE)
+get_filename_component(_filename "/home/robox/catkin_ws/src/autobotx/msg/Unicycle.msg" NAME_WE)
 add_dependencies(autobotx_generate_messages_py _autobotx_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

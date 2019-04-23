@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chirag/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/robox/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chirag/catkin_ws/build
+CMAKE_BINARY_DIR = /home/robox/catkin_ws/build
 
 # Utility rule file for autobotx_genlisp.
 
@@ -63,10 +63,10 @@ autobotx/CMakeFiles/autobotx_genlisp.dir/build: autobotx_genlisp
 .PHONY : autobotx/CMakeFiles/autobotx_genlisp.dir/build
 
 autobotx/CMakeFiles/autobotx_genlisp.dir/clean:
-	cd /home/chirag/catkin_ws/build/autobotx && $(CMAKE_COMMAND) -P CMakeFiles/autobotx_genlisp.dir/cmake_clean.cmake
+	cd /home/robox/catkin_ws/build/autobotx && $(CMAKE_COMMAND) -P CMakeFiles/autobotx_genlisp.dir/cmake_clean.cmake
 .PHONY : autobotx/CMakeFiles/autobotx_genlisp.dir/clean
 
 autobotx/CMakeFiles/autobotx_genlisp.dir/depend:
-	cd /home/chirag/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chirag/catkin_ws/src /home/chirag/catkin_ws/src/autobotx /home/chirag/catkin_ws/build /home/chirag/catkin_ws/build/autobotx /home/chirag/catkin_ws/build/autobotx/CMakeFiles/autobotx_genlisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/robox/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robox/catkin_ws/src /home/robox/catkin_ws/src/autobotx /home/robox/catkin_ws/build /home/robox/catkin_ws/build/autobotx /home/robox/catkin_ws/build/autobotx/CMakeFiles/autobotx_genlisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : autobotx/CMakeFiles/autobotx_genlisp.dir/depend
 

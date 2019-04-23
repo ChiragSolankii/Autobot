@@ -7,7 +7,7 @@
 
 #define SYSTEM_ID     103
 #define COMPONENT_ID  55
-extern Serial_Port serial_port;
+//extern Serial_Port serial_port;
 /*void mav_send_robot_sensor_readings(uint32_t left_wheel_ticks, uint32_t right_wheel_ticks, float curr_heading);
 void mav_send_robot_position_change(int delta_x, int delta_y, int delta_theta);
 //void mav_send_robot_distance_sensor_readings(const uint16_t *ultrasonic_readings);
@@ -15,7 +15,5 @@ void mav_send_initial_status(float initial_heading, uint8_t ultrasonic_config, u
 
 
 */
-extern char *uart_name ;
-extern int baudrate ;
 
 #endif

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/chirag/catkin_ws/src/autobotx/src/link.cpp" "/home/chirag/catkin_ws/build/autobotx/CMakeFiles/link.dir/src/link.cpp.o"
+  "/home/robox/catkin_ws/src/autobotx/src/link.cpp" "/home/robox/catkin_ws/build/autobotx/CMakeFiles/link.dir/src/link.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,16 +17,16 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/chirag/catkin_ws/devel/include"
-  "/home/chirag/catkin_ws/src/autobotx/include"
+  "/home/robox/catkin_ws/devel/include"
+  "/home/robox/catkin_ws/src/autobotx/include"
   "/opt/ros/kinetic/include"
   "/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/home/chirag/catkin_ws/src/autobotx/src"
+  "/home/robox/catkin_ws/src/autobotx/src"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/chirag/catkin_ws/build/autobotx/CMakeFiles/my_libs.dir/DependInfo.cmake"
+  "/home/robox/catkin_ws/build/autobotx/CMakeFiles/my_libs.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/autobotx_generate_messages_eus"
-  "/home/chirag/catkin_ws/devel/share/roseus/ros/autobotx/msg/Unicycle.l"
-  "/home/chirag/catkin_ws/devel/share/roseus/ros/autobotx/manifest.l"
+  "/home/robox/catkin_ws/devel/share/roseus/ros/autobotx/msg/Unicycle.l"
+  "/home/robox/catkin_ws/devel/share/roseus/ros/autobotx/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

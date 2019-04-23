@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/autobotx_generate_messages_nodejs"
-  "/home/chirag/catkin_ws/devel/share/gennodejs/ros/autobotx/msg/Unicycle.js"
+  "/home/robox/catkin_ws/devel/share/gennodejs/ros/autobotx/msg/Unicycle.js"
 )
 
 # Per-language clean rules from dependency scanning.
