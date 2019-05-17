@@ -13,7 +13,7 @@ DWAPlannerROS:
   max_rot_vel: 0.25 # choose slightly less than the base's capability
   min_rot_vel: 0.15 # this is the min angular velocity when there is negligible translational velocity
   rot_stopped_vel: 0.1
-  acc_lim_x: 1.0 
+  acc_lim_x: 1.0
   acc_lim_theta: 0.2
   acc_lim_y: 0.0 # diff drive robot
 
@@ -47,4 +47,3 @@ DWAPlannerROS:
 
 # Differential-drive robot configuration - necessary?
   holonomic_robot: false
-

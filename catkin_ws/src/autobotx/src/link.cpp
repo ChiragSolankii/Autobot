@@ -8,6 +8,7 @@
 
 #include <tf/transform_broadcaster.h>
 #include <nav_msgs/Odometry.h>
+#include <geometry_msgs/Twist.h>
 
 std::string uart_name = "/dev/ttyACM0";
 int baudrate = 115200;
@@ -30,10 +31,10 @@ mavlink_robot_position_change_t mav_robot_position_change;
 void mav_decode();
 
 
-void chatterCallback(const autobotx::Unicycle::ConstPtr& msg)
+void chatterCallback(const geometry_msgs::Twist::ConstPtr& msg)
 {
-  v = msg->velocity;
-  w = msg->w;
+  v = msg->linear.x*100;
+  w = msg->angular.z;
   mavlink_message_t message_send;
   printf("velocity: [%f] \t w: [%f]\n", v, w);
   x_mav = mavlink_msg_desire_cmd_val_pack(SYSTEM_ID, COMPONENT_ID, &message_send, v, w);
@@ -94,7 +95,7 @@ inline void publish_odom(void)
 
   vx = sqrt(robot_pose.x*robot_pose.x + robot_pose.y*robot_pose.y) * 10;
 
-  d_th = th - prev_th; 
+  d_th = th - prev_th;
   vth = atan2(sin(d_th), cos(d_th)) * 10;
 
   current_time = ros::Time::now();

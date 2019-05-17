@@ -6,7 +6,7 @@
   <!-- Run patrick -->
   <!--include file="$(find my_personal_robotic_companion)/launch/urdf.launch" /-->
   <!-- Run the map server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find autobotx)/map/swami_v02.yaml" output="screen"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find autobotx)/map/lab1.yaml" output="screen"/>
 
   <!--node name="map_server" pkg="map_server" type="map_server" args="$(find autobotx)/map/swami_v02.pgm 0.05"/-->
 

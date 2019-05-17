@@ -75,7 +75,8 @@ def vels(speed,turn):
 if __name__=="__main__":
     settings = termios.tcgetattr(sys.stdin)
 
-    pub = rospy.Publisher('cmd_vel',Unicycle, queue_size = 1)
+    #pub = rospy.Publisher('cmd_vel',Unicycle, queue_size = 1)
+    pub = rospy.Publisher('cmd_vel',Twist, queue_size = 1)
     rospy.init_node('teleop_twist_keyboard')
     #speed = rospy.get_param("~speed", 0.5)
     #turn = rospy.get_param("~turn", 1.0)
@@ -91,6 +92,7 @@ if __name__=="__main__":
             turn = moveBindings[key][1]
 
         if key in speedBindings.keys():
+
             speed = speed + 34 * speedBindings[key][0]
             turn = turn   +1.5 * speedBindings[key][1] #2.31503 * speedBindings[key][1]
             if speed >= 34 :
@@ -117,14 +119,17 @@ if __name__=="__main__":
         #pub.publish(speed,turn)
 
         unicycle = Unicycle()
-        #twist.linear.x = speed; twist.linear.y = 0; twist.linear.z =0;
+        twist=Twist()
+        #twist.linear.x = speed; twist.linear.y = 0; twist.linear.z =0;void chatterCallback(const autobotx::Unicycle::ConstPtr& msg)
+
         #twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = turn
         #pub.publish(twist.linear,twist.angular)
-        unicycle.velocity= float(speed)
-        unicycle.w = float(turn)
-        pub.publish(unicycle)
 
-        print(unicycle)
+        twist.linear.x=float(speed/100)
+        twist.angular.z = float(turn)
+        pub.publish(twist)
+
+        print(twist)
 '''
 finally:
     twist = Twist()
