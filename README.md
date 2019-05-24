@@ -9,6 +9,7 @@ independent functioning, entire system can be divided in three subsections.
 1. Map generation using Simultaneous Localization and Mapping [SLAM].
 2. Localisation using Adaptive Monte Carlo particle filter.
 3. Path planning using A* algorithm.
+
 Map generation is based on the gmapping ROS package which works on Rao-
 Blackwellized Particle Filter. Generated map is then used for goal tracking and path
 planning purpose. Localisation in this map is done by amcl ROS package. Navigation
